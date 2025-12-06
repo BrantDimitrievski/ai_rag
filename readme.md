@@ -1,46 +1,20 @@
-1. Docs → Parsed text
+Plan for action
 
+1. Docs to Parsed text
 Put all your fake RCN docs in workspace/.
+Use unstructured.io to parse docs into JSON. Insert into an SQL lite DB. 
 
-Use unstructured.io to:
+2. Parsed text to vector Space
+How to do i split chunks? 1000 characters?
+Use an embedding model to turn chunk into a vector
+create vectorSpace maybe use Qdrant or pgvector
 
-Read each file,
+3. Choose and Setup model (probably 70B Llama)
+Build a system prompt for Llama 70B:
+System message (“You are an assistant to the National Defence of Canada (DND). ”), #cite all information, 
+Setup UI
+Embed the question with the same embedding model
 
-Extract clean text + metadata (ship type, date, classification),
+Search in the vector DB, get top-k relevant chunks (with their doc info)
 
-Save into a small DB (e.g. SQLite) → one row per doc.
-
-2. Parsed text → Vectors (for search)
-
-Take the text from each row.
-
-Split into chunks (e.g. 500–1000 characters).
-
-Use an embedding model (e.g. BGE / OpenAI embeddings) to turn each chunk into a vector.
-
-Store vectors + metadata in a vector database (Qdrant / Milvus / pgvector).
-
-3. Question → Retrieved chunks
-
-User asks a question.
-
-Embed the question with the same embedding model.
-
-Search in the vector DB → get top-k relevant chunks (with their doc info).
-
-4. Retrieved chunks → Answer (AI tool)
-
-Build a prompt for Llama 70B:
-
-System message (“you are an RCN assistant…”),
-
-The retrieved chunks as context,
-
-The user’s question.
-
-Llama 70B generates an answer using only that context.
-
-Optional: wrap this in a small API or web UI (textbox + answer + sources).
-
-That’s it:
-Folder → parse → embed → vector DB → retrieve → Llama answer.
+Llama 70B generates an answer using only that context
