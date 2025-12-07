@@ -59,12 +59,10 @@ def detect_doc_type(text: str, file_path: Path) -> str:
     """Very simple doc_type classification."""
     t = text.lower()
 
-    # file extension hints
     ext = file_path.suffix.lower()
     if ext in {".ppt", ".pptx"}:
         return "presentation"
 
-    # text-based hints
     if "briefing note" in t or "briefing" in t:
         return "briefing"
     if "technical assessment" in t or "technical analysis" in t:
