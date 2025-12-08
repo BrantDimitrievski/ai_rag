@@ -2,7 +2,7 @@ import os, json
 import unstructured_client
 from unstructured_client.models import operations, shared
 from pathlib import Path
-import helper as helper
+import parsing.helper as helper
 import jsondb.database as db
 from dotenv import load_dotenv
 

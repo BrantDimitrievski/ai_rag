@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-import helper
+import parsing.helper as helper
 import jsondb.database as db
 from chunking import chunk_text
 
