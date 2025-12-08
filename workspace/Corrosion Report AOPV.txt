@@ -1,0 +1,253 @@
+CORROSION ENGINEERING ASSESSMENT REPORT  
+AOPV HARRY DEWOLF & AOPV MARGARET BROOKE  
+2021–2024 HULL & STRUCTURAL STEEL CORROSION REVIEW  
+NETE – TEST & EVALUATION (SEA TRIALS SUPPORT)
+
+---
+
+EXECUTIVE SUMMARY
+
+This corrosion and structural steel condition assessment report summarizes findings from
+the 2021, 2022, 2023 and 2024 inspection cycles conducted on Harry DeWolf-class Arctic Offshore Patrol Vessels:
+• AOPV HARRY DEWOLF (2021, 2022, 2023, 2024)
+• AOPV MARGARET BROOKE (2022, 2023, 2024)
+
+Objectives:
+• Identify hull corrosion and pitting progression
+• Evaluate topside corrosion, coating performance, and mechanical damage
+• Assess cathodic protection (sacrificial anodes + bonding systems)
+• Perform steel thickness measurements to monitor structural integrity
+• Review effects of Arctic operations on corrosion acceleration
+
+Recommended Maintenance Priority:
+1. Hull coating repairs during 2025 dry docking
+2. Bilge radius pitting monitoring (Margaret Brooke)
+3. Replacement of depleted sacrificial anodes (Harry DeWolf bow region)
+4. Repairs to exposed fittings on 02 & 03 decks (both ships)
+
+Risk Assessment: LOW for 2024 deployment — conditional on recommended maintenance.
+
+---
+
+CHAPTER 1 — INSPECTION BACKGROUND
+
+1.1 Ship Class & Operating Profile
+The Harry DeWolf-class operates in:
+• Arctic waters (ice exposure)
+• North Atlantic saltwater
+• Brackish & freeze-thaw regions
+
+1.2 Corrosion Threat Overview
+Primary drivers:
+• Abrasion from ice contact
+• Mechanical coating damage during operations
+• Saltwater immersion
+• Temperature cycling (–35°C to +20°C)
+• High humidity in internal tanks
+
+---
+
+CHAPTER 2 — HULL CORROSION OBSERVATIONS
+
+2.1 Summary of Hull Zones Inspected:
+Zone A: Forward Ice Belt  
+Zone B: Midships Shell Plating  
+Zone C: Stern & Propulsor Region  
+Zone D: Bilge Radius  
+Zone E: Boot Top Coating Zone  
+
+Findings highlight progression in key corrosion hotspots.
+
+--- INSPECTION YEAR: 2021 (Harry DeWolf) ---
+
+Zone A (Forward Ice Belt)
+• Coating breakdown due to repeated ice impacts  
+• Localized rust streaking along weld seams  
+
+Zone B
+• Minor pitting beginning near midships port side
+
+Zone D
+• Bilge area shows early underfilm corrosion
+
+Steel thickness min: 11.8 mm (baseline design 12.0 mm)
+
+Recommended Work:
+• Preventive maintenance during next docking
+
+--- INSPECTION YEAR: 2022 (Both Ships) ---
+
+Zone A
+• Hull shell plating coating abrasion increased on both vessels
+• Rust deposits accumulating at waterline
+
+Zone C
+• Stern area shows coating removal around propulsor mounts
+
+Zone D (Margaret Brooke)
+• Localized pits measuring 0.8–1.4 mm deep
+
+Steel thickness min (MB): 11.6 mm  
+Steel thickness min (HDW): 11.7 mm
+
+--- INSPECTION YEAR: 2023 (Both Ships) ---
+
+New Findings:
+• Pitting corrosion spread into bilge radius → HDW & MB
+• Coating blistering detected along ice belt region
+
+Risk Trend: Slight upward progression due to harsh Arctic deployments
+
+--- INSPECTION YEAR: 2024 (Both Ships) ---
+
+Zone B
+• Underfilm corrosion detected along the lower shell plating
+
+Zone D (Margaret Brooke)
+• Deepest pit observed: 2.0 mm
+• Still within allowable tolerance, but trending upward
+
+Steel thickness min (2024):
+• Harry DeWolf: 11.6 mm
+• Margaret Brooke: 11.5 mm
+
+Conclusion: Continue inspections annually.
+
+---
+
+CHAPTER 3 — TOPSIDE CORROSION
+
+3.1 Observed Hotspots
+• Handrails — 02 deck (coating chipped)
+• Boat handling cranes — mechanical paint damage
+• Mast & exposed fittings — UV + impact wear
+• Scupper openings — rust staining around penetrations  
+
+Maintenance Planner Notes:
+Periodic coating touch-ups required every year when dockside.
+
+In 2024, both ships:
+• 02–03 deck ladders exhibited visible rust at attachment welds
+
+---
+
+CHAPTER 4 — CATHODIC PROTECTION (SACRIFICIAL ANODES)
+
+4.1 Bow Region Anode Condition  
+Harry DeWolf:
+• 3 anodes >75% material loss (replace)  
+• Bow sees increased brackish water exposure
+
+Margaret Brooke:
+• Normal consumption (<50%)  
+
+4.2 Stern Region Bonding Verification
+Electrical continuity test confirms
+• Full bonding intact on both ships
+
+Recommendation:
+Replace bow anodes on HDW during 2025 docking.
+
+---
+
+CHAPTER 5 — COATING SYSTEM PERFORMANCE
+
+Performance Rating Scale (1–5)
+1 = Excellent
+5 = Severe breakdown requiring immediate repair
+
+2023–2024 Summary:
+• Hull Ice Belt: 3 (abrasion-driven damage)
+• Shell Plating: 2–3 range
+• Topside Fittings: 3–4 (mechanical impacts)
+
+Coating Type: Arctic-capable epoxy / polyurethane
+
+Repairs required: spot blasting & recoating
+
+---
+
+CHAPTER 6 — DRY DOCK INSPECTION RESULTS
+
+Dock Availability:
+• HDW: 2021, 2023
+• MB: 2022, 2024
+
+Structural steel remained within design allowances.
+
+Notable Findings in Dry Dock:
+• Waterline corrosion consistently under load marks
+• Minor weld seam corrosion throughout both hulls
+
+Monitoring action: Continue annual survey intervals.
+
+---
+
+CHAPTER 7 — INTERNAL TANKS CORROSION
+
+Tanks inspected:
+• Fuel storage
+• Fresh water tanks
+• Ballast tanks
+
+Observations:
+• Condensation driving micro-pitting in upper tank regions  
+• Coating requires spot repair in ballast tanks of HDW
+
+---
+
+CHAPTER 8 — STEEL THICKNESS MEASUREMENTS (UTM SURVEY)
+
+Min thickness trends (mm):
+
+Year | HDW | MB
+---- | ---- | ----
+2021 | 11.8 | —
+2022 | 11.7 | 11.6
+2023 | 11.7 | 11.6
+2024 | 11.6 | 11.5
+
+Design baseline: 12.0 mm  
+→ Margin remains sufficient for operation until 2030–2031
+
+---
+
+CHAPTER 9 — CORROSION ACCELERATION STUDY IN ARCTIC CONDITIONS
+
+Driving factors analyzed:
+• Salinity variation
+• Ice abrasion cycles
+• Thermal gradients
+• Coating micro-cracking
+• Increased oxygen concentration in cold water
+
+Conclusion:
+Arctic operations increase coating wear rate by approx. 30–40%.
+
+---
+
+CHAPTER 10 — RECOMMENDATIONS & MAINTENANCE PRIORITIES
+
+2025 Dry Dock Action Items:
+• Replace sacrificial anodes (HDW bow)
+• Perform spot recoating of ice belt zones
+• Expand pitting monitoring program (MB bilge radius)
+
+Long-Term Strategy:
+• Enhanced coatings in bow region
+• Frequent topside repairs after boat operations
+• Maintain annual corrosion surveys for both vessels
+
+---
+
+ANNEX A — IMAGE PLACEHOLDERS  
+(Figures removed in this simulated dataset)
+
+ANNEX B — RAW MEASUREMENT DATA  
+(Summarized above)
+
+---
+
+END OF REPORT  
+NETE – T&E Coastal Engineering Group  
+2024

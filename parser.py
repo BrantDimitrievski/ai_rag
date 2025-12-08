@@ -3,8 +3,10 @@ import unstructured_client
 from unstructured_client.models import operations, shared
 from pathlib import Path
 import helper as helper
-import database as db
+import jsondb.database as db
+from dotenv import load_dotenv
 
+load_dotenv()
 UNSTRUCTURED_API_KEY = os.getenv("UNSTRUCTURED_API_KEY")
 
 client = unstructured_client.UnstructuredClient(
@@ -14,29 +16,40 @@ client = unstructured_client.UnstructuredClient(
 
 
 def parse_docs(file_path: Path) -> list[dict]:
-
-    req = {
-        "partition_parameters": {
-            "files": {
-                "content": open(file_path, "rb"),
-                "file_name": file_path.name,
-            },
-            "strategy": shared.Strategy.AUTO,
-            "languages": ["eng", "fra"],
-        }
-    }
-
     try:
-        res = client.general.partition(request=req)
-    finally:
-        req["partition_parameters"]["files"]["content"].close()
+        with open(file_path, "rb") as f:
+            file_bytes = f.read()
 
-    if getattr(res, "elements", None) is None:
-        print(f"Nothing was parsed for {file_path}")
+        partition_params = shared.PartitionParameters(
+            files=shared.Files(
+                content=file_bytes,
+                file_name=file_path.name,
+            ),
+            strategy=shared.Strategy.AUTO,
+            languages=["eng", "fra"],
+        )
+
+        req = operations.PartitionRequest(
+            partition_parameters=partition_params,
+        )
+
+        res = client.general.partition(request=req)
+
+    except Exception as e:
+        print(f"[ERROR] Unstructured failed for {file_path}: {e}")
         return []
 
-    return res.elements
+    elements = getattr(res, "elements", None)
+    if not elements:
+        print(f"Nothing parsed for {file_path}")
+        return []
 
+    element_dicts = [
+        el if isinstance(el, dict) else el.to_dict()
+        for el in elements
+    ]
+
+    return element_dicts
 
 
 def process_single_file(path: Path, db_path: str = "parsed_docs.db") -> None:
@@ -69,15 +82,21 @@ def process_single_file(path: Path, db_path: str = "parsed_docs.db") -> None:
         print(f"[ERROR] Unexpected failure for {path}: {e}")
 
 
-def process_workspace(workspace_dir: str = "workspace", db_path: str = "parsed_docs.db" ) -> None:
+def process_workspace(workspace_dir: str = "workspace", db_path: str = "parsed_docs.db") -> None:
     workspace_path = Path(workspace_dir)
+
+    if not workspace_path.exists():
+        print(f"[WARN] Workspace directory not found: {workspace_path}")
+        return
 
     db.init_db(db_path)
 
-    for path in workspace_path:
-        process_single_file(path, db_path=db_path)
+    for path in workspace_path.iterdir():
+        if path.is_file():
+            # check for file ext?
+            process_single_file(path, db_path=db_path)
 
-    print("Parsing Complete. Docs have turned into JSON")
+    print("Parsing complete. Docs have been stored in the database.")
 
 
 if __name__ == "__main__":

@@ -1,2 +1,4 @@
 .env
 readme.md
+__pycache__/
+jsondb/__pycache__/
