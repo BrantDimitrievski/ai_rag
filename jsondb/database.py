@@ -2,18 +2,19 @@ import json
 import sqlite3
 
 
-def init_db():
-    conn = sqlite3.connect("parsed_docs.db")
+
+def init_db(db_path: str = "parsed_docs.db") -> None:
+    conn = sqlite3.connect(db_path)
     cur = conn.cursor()
     cur.execute(
         """
         CREATE TABLE IF NOT EXISTS jsonparse (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id       INTEGER PRIMARY KEY AUTOINCREMENT,
             file_path TEXT NOT NULL,
-            title TEXT,
-            domain TEXT,
-            doc_type TEXT,
-            year INTEGER,
+            title     TEXT,
+            domain    TEXT,      -- JSON-encoded list of tags
+            doc_type  TEXT,
+            year      INTEGER,
             json_data TEXT NOT NULL
         );
         """
@@ -27,11 +28,12 @@ def insert_doc(
     title: str,
     domain: list[str],
     doc_type: str,
-    year: int, # make this optional
+    year: int | None,
     json_data: list[dict],
-):
+    db_path: str = "parsed_docs.db",
+) -> None:
     """Insert one document's metadata + raw JSON into DB."""
-    conn = sqlite3.connect("parsed_docs.db")
+    conn = sqlite3.connect(db_path)
     cur = conn.cursor()
     cur.execute(
         """
@@ -47,7 +49,5 @@ def insert_doc(
             json.dumps(json_data),
         ),
     )
-    conn.commit()
-    conn.close()
     conn.commit()
     conn.close()
