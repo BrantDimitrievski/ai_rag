@@ -3,8 +3,6 @@ from typing import List
 
 import SentenceTransformer
 
-_model: SentenceTransformer | None = None
-
 
 def _get_model() -> SentenceTransformer:
     global _model
