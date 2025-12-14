@@ -114,6 +114,15 @@ def insert_chunk(
     conn.close()
 
 
+def delete_chunks_for_doc(doc_id: int, db_path: str = "parsed_docs.db") -> None:
+    """Delete all chunks for a given doc_id (used to keep chunking idempotent)."""
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("DELETE FROM chunks WHERE doc_id = ?;", (doc_id,))
+    conn.commit()
+    conn.close()
+
+
 def fetch_all_docs(db_path: str = "parsed_docs.db") -> list[dict]:
     """Return all docs from jsonparse as a list of dicts."""
     conn = sqlite3.connect(db_path)
@@ -125,36 +134,36 @@ def fetch_all_docs(db_path: str = "parsed_docs.db") -> list[dict]:
     return [dict(r) for r in rows]
 
 
-def iter_chunks_with_docs(db_path: str = "parsed_docs.db",batch_size: int = 128) -> Iterable[list[sqlite3.Row]]:
-
+def iter_chunks_with_docs(db_path: str = "parsed_docs.db", batch_size: int = 128) -> Iterable[list[sqlite3.Row]]:
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     cur = conn.cursor()
-    cur.execute(
-        """
-        SELECT
-            c.id       AS chunk_id,
-            c.doc_id   AS doc_id,
-            c.chunk_idx,
-            c.text,
-            c.start_pos,
-            c.end_pos,
-            c.metadata AS chunk_metadata,
-            j.title,
-            j.file_path,
-            j.domain,
-            j.doc_type,
-            j.year
-        FROM chunks c
-        JOIN jsonparse j ON c.doc_id = j.id
-        ORDER BY c.id ASC;
-        """
-    )
+    try:
+        cur.execute(
+            """
+            SELECT
+                c.id       AS chunk_id,
+                c.doc_id   AS doc_id,
+                c.chunk_idx,
+                c.text,
+                c.start_pos,
+                c.end_pos,
+                c.metadata AS chunk_metadata,
+                j.title,
+                j.file_path,
+                j.domain,
+                j.doc_type,
+                j.year
+            FROM chunks c
+            JOIN jsonparse j ON c.doc_id = j.id
+            ORDER BY c.id ASC;
+            """
+        )
 
-    while True:
-        rows = cur.fetchmany(batch_size)
-        if not rows:
-            break
-        yield rows
-
-    conn.close()
+        while True:
+            rows = cur.fetchmany(batch_size)
+            if not rows:
+                break
+            yield rows
+    finally:
+        conn.close()

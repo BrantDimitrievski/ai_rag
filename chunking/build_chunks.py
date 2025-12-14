@@ -31,6 +31,9 @@ def build_chunks(db_path: str = "parsed_docs.db") -> None:
             print(f"[WARN] Empty full_text for doc_id={doc_id}, file={file_path}")
             continue
 
+        # Clear existing chunks for idempotent reruns
+        db.delete_chunks_for_doc(doc_id=doc_id, db_path=db_path)
+
         chunks = chunk_text(full_text, max_chars=1000, overlap=200)
         if not chunks:
             print(f"[WARN] No chunks generated for doc_id={doc_id}, file={file_path}")

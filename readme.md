@@ -1,3 +1,15 @@
+How to run me:
+
+1- Add files to workspace folder
+2- Parsing: python -m parsing.parser
+3- Chunking: python -m chunking.build_chunks
+4- Creating VectorDB using Qdrant from chunks
+4.1 - 
+python vectorstore_qdrant.py  
+5- Setup a server, install dependencies and your model of choice 
+ex: 
+
+
 Plan for action
 
 1. Docs to Parsed text

@@ -9,6 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 UNSTRUCTURED_API_KEY = os.getenv("UNSTRUCTURED_API_KEY")
 
+if not UNSTRUCTURED_API_KEY:
+    raise RuntimeError("UNSTRUCTURED_API_KEY is not set; unable to call Unstructured API.")
+
 client = unstructured_client.UnstructuredClient(
     api_key_auth=UNSTRUCTURED_API_KEY,
     # server_url = "https://platform.unstructuredapp.io/api/v1"
