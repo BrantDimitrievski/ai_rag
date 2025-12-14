@@ -1,7 +1,9 @@
 import os
-from typing import List
+from typing import List, Optional
 
-import SentenceTransformer
+from sentence_transformers import SentenceTransformer
+
+_model: Optional[SentenceTransformer] = None
 
 
 def _get_model() -> SentenceTransformer:
@@ -16,7 +18,7 @@ def _get_model() -> SentenceTransformer:
     return _model
 
 
-def embed_texts(texts: List[str]) -> List[list[float]]:
+def embed_texts(texts: List[str]) -> List[List[float]]:
     """
     Embed a list of texts into vectors.
 
@@ -30,6 +32,6 @@ def embed_texts(texts: List[str]) -> List[list[float]]:
     embeddings = model.encode(
         texts,
         show_progress_bar=False,
-        convert_to_numpy=False,
+        convert_to_numpy=True,
     )
-    return [e.tolist() for e in embeddings]
+    return embeddings.tolist()
